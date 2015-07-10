@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace fuck
 {
@@ -10,7 +11,9 @@ namespace fuck
         {
             string historyLogPath = Environment.GetEnvironmentVariable("home") + @"\.bash_history";
             string[] lines = File.ReadAllLines(historyLogPath);
-            var lineToFix = lines[lines.Length - 2];
+            var lineToFix = lines.Last();
+
+            Console.WriteLine("input: " + lineToFix);
 
             if (lineToFix.StartsWith("git"))
             {
@@ -36,6 +39,7 @@ namespace fuck
                     string error = p.StandardError.ReadToEnd();
                     p.WaitForExit();
                     Console.WriteLine(output);
+                    Console.WriteLine(error);
                 }
             }
         }
