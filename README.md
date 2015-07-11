@@ -1,15 +1,19 @@
 # fuck
 Fix command line spelling errors like it's 1999.
 
-I ordered my lunch at work late so I decided to spike out a program to fix my command line spelling errors in my free time.
+![demo](http://i.imgur.com/DIiSuia.gif)
 
 # Installation Instructions
 
-Put the following lines in your .bashrc file:
+Add the directory fuck.exe is located to your [path](http://www.computerhope.com/issues/ch000549.htm), then put the following lines in your .bashrc file:
 
 ```
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 ```
 
-Next, add the location of fuck.exe to your path.
+# Why?
+
+I ordered my lunch at work late so I decided to spike out a program to fix command line spelling errors in my newfound free time.
+
+This project was inspired by [The Fuck](https://github.com/nvbn/thefuck).
