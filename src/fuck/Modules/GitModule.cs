@@ -23,7 +23,8 @@ namespace fuck.Modules
             inputtedCommandAndArguments.RemoveAt(0);
             var arguments = inputtedCommandAndArguments.Count > 0 ? inputtedCommandAndArguments : new List<string>();
 
-            var commands = File.ReadAllLines("git dictionary.txt");
+            var dictionaryLocation = System.Reflection.Assembly.GetEntryAssembly().Location;
+            var commands = File.ReadAllLines(dictionaryLocation.Replace("fuck.exe", "git dictionary.txt"));
 
             var command = commands.FirstOrDefault(x => Levenshtein.Calculate(x, commandToFix) <= Tolerance);
 
