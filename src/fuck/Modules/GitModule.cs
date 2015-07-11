@@ -29,7 +29,7 @@ namespace fuck.Modules
 
             if (command != null)
             {
-                return "git " + command + " " + string.Join("", arguments).Trim();
+                return "git " + command + " " + string.Join(" ", arguments).Trim();
             }
 
             return string.Empty;

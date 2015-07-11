@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using fuck.Modules;
 
 namespace fuck
 {
-    public class Fuck
+    public class ModuleRunner
     {
         private readonly List<IModule> _modules;
 
-        public Fuck()
+        public ModuleRunner()
         {
             _modules = new List<IModule>
             {
@@ -20,10 +19,8 @@ namespace fuck
             };
         }
 
-        public void Execute()
+        public void Execute(string input)
         {
-            var input = GetIncorrectInput();
-
             Console.WriteLine("Input: " + input);
 
             var output = _modules.First(x => x.IsMatch(input)).GetCorrectInput(input);
@@ -57,13 +54,6 @@ namespace fuck
 
             Console.WriteLine(processOutput);
             Console.WriteLine(processError);
-        }
-
-        public string GetIncorrectInput()
-        {
-            var historyLogPath = Environment.GetEnvironmentVariable("home") + @"\.bash_history";
-            var lines = File.ReadAllLines(historyLogPath);
-            return lines.Last();
         }
     }
 }

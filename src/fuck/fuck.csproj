@@ -44,7 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fuck.cs" />
+    <Compile Include="CommandParser.cs" />
+    <Compile Include="ModuleRunner.cs" />
     <Compile Include="Levenshtein.cs" />
     <Compile Include="Modules\DefaultModule.cs" />
     <Compile Include="Modules\GitModule.cs" />
