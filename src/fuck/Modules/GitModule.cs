@@ -6,14 +6,14 @@ namespace fuck.Modules
 {
     public class GitModule : IModule
     {
-        private const int Tolerance = 1;
+        private const int Tolerance = 3;
 
         public bool IsMatch(string input)
         {
             return input.StartsWith("git") || input.StartsWith("got") || input.StartsWith("gut");
         }
 
-        public string GetCorrectInput(string input)
+        public List<string> GetCorrectInput(string input)
         {
             var inputtedCommandAndArguments = input.Split(' ').ToList();
             inputtedCommandAndArguments.RemoveAt(0);
@@ -26,14 +26,11 @@ namespace fuck.Modules
             var dictionaryLocation = System.Reflection.Assembly.GetEntryAssembly().Location;
             var commands = File.ReadAllLines(dictionaryLocation.Replace("fuck.exe", "git dictionary.txt"));
 
-            var command = commands.FirstOrDefault(x => Levenshtein.Calculate(x, commandToFix) <= Tolerance);
+            var command = commands.Where(x => Levenshtein.Calculate(x, commandToFix) <= Tolerance);
 
-            if (command != null)
-            {
-                return "git " + command + " " + string.Join(" ", arguments).Trim();
-            }
+            var possibleCorrections = command.OrderBy(x => Levenshtein.Calculate(x, commandToFix)).Select(x => "git " + x + " " + string.Join(" ", arguments).Trim()).ToList();
 
-            return string.Empty;
+            return possibleCorrections;
         }
     }
 }

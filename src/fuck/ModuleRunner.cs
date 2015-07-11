@@ -25,14 +25,39 @@ namespace fuck
 
             var output = _modules.First(x => x.IsMatch(input)).GetCorrectInput(input);
 
-            if (output != string.Empty)
+            if (output.Any())
             {
-                Console.WriteLine("Corrected: " + output);
-                RunCommand(output);
+                var selection = output.Count > 1 ? GetSelectedCommand(output) : 0;
+                Console.WriteLine("Corrected: " + output[selection]);
+                RunCommand(output[selection]);
             }
             else
             {
                 Console.WriteLine("Even I don't know what the hell you were trying to do.");
+            }
+        }
+
+        private int GetSelectedCommand(List<string> output)
+        {
+            for (var i = 0; i < output.Count; i++)
+            {
+                Console.WriteLine(i + ") " + output[i]);
+            }
+
+            while (true)
+            {
+                Console.Write("> ");
+                var selectionString = Console.ReadLine();
+
+                int selection;
+
+                if (int.TryParse(selectionString, out selection) && output.Count > selection)
+                {
+                    if (selection < output.Count)
+                    {
+                        return selection;
+                    }
+                }
             }
         }
 

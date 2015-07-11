@@ -1,4 +1,6 @@
-﻿namespace fuck.Modules
+﻿using System.Collections.Generic;
+
+namespace fuck.Modules
 {
     public class DefaultModule : IModule
     {
@@ -7,9 +9,9 @@
             return true;
         }
 
-        public string GetCorrectInput(string input)
+        public List<string> GetCorrectInput(string input)
         {
-            return string.Empty;
+            return new List<string>();
         }
     }
 }

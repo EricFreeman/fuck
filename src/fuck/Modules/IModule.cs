@@ -1,8 +1,10 @@
-﻿namespace fuck.Modules
+﻿using System.Collections.Generic;
+
+namespace fuck.Modules
 {
     public interface IModule
     {
         bool IsMatch(string input);
-        string GetCorrectInput(string input);
+        List<string> GetCorrectInput(string input);
     }
 }
