@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            var commandParser = new CommandReader();
+            var commandParser = new FileReader();
             var input = commandParser.GetPreviousCommand();
 
             var moduleRunner = new ModuleRunner();
