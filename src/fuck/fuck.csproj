@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandParser.cs" />
+    <Compile Include="CommandReader.cs" />
+    <Compile Include="Models\Command.cs" />
     <Compile Include="ModuleRunner.cs" />
     <Compile Include="Levenshtein.cs" />
     <Compile Include="Modules\DefaultModule.cs" />

@@ -68,3 +68,4 @@ update-index
 update-ref
 verify-pack
 write-tree
+gitk
