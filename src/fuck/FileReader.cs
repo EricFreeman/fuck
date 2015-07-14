@@ -1,16 +1,17 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 
 namespace fuck
 {
     public class FileReader
     {
+        FileLocator Locator = new FileLocator();
         public string GetPreviousCommand()
         {
-            var historyLogPath = Environment.GetEnvironmentVariable("home") + @"\.bash_history";
-            var lines = File.ReadAllLines(historyLogPath);
+            var lines = File.ReadAllLines(Locator.BashHistoryPath());
             return lines.Last();
         }
+
+        
     }
 }

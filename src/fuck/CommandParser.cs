@@ -1,6 +1,6 @@
-﻿using System;
+﻿using fuck.Models;
+using System;
 using System.Linq;
-using fuck.Models;
 
 namespace fuck
 {

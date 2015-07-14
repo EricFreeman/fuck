@@ -1,8 +1,8 @@
-﻿using System;
+﻿using fuck.Modules;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using fuck.Modules;
 
 namespace fuck
 {
