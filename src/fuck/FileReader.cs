@@ -8,7 +8,7 @@ namespace fuck
     {
         public string GetPreviousCommand()
         {
-            var historyLogPath = Environment.GetEnvironmentVariable("home") + @"\.bash_history";
+            var historyLogPath = Environment.ExpandEnvironmentVariables("%SystemDrive%\\Users\\"+Environment.UserName) + "\\.bash_history";
             var lines = File.ReadAllLines(historyLogPath);
             return lines.Last();
         }
