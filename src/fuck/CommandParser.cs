@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using fuck.Models;
 
 namespace fuck
@@ -15,7 +14,7 @@ namespace fuck
             var commandParts = input.Split(' ').ToList();
 
             command.Program = commandParts.Count > 0 ? commandParts[0] : string.Empty;
-            command.Action = commandParts.Count > 1 ? commandParts[1] : String.Empty;
+            command.Action = commandParts.Count > 1 ? commandParts[1] : string.Empty;
             command.Arguments = commandParts.Count > 2 ? string.Join(" ", commandParts.GetRange(2, commandParts.Count - 2).ToList()) : string.Empty;
 
             return command;

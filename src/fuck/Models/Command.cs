@@ -12,6 +12,6 @@ namespace fuck.Models
         public string Action { get; set; }
         public string Arguments { get; set; }
 
-        public IEnumerable<string> Recommendations { get; set; } 
+        public IEnumerable<string> Recommendations { get; set; }
     }
 }
