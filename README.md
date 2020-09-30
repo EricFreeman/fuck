@@ -1,4 +1,4 @@
-# fuck
+# Fuck
 Fix command line spelling errors like it's 1999.
 
 ![demo](http://i.imgur.com/DIiSuia.gif)
